@@ -1,0 +1,462 @@
+nohup: ignoring input
+Namespace(batch_size=512, dataset_dir='datasets/diginetica', embedding_dim=32, epochs=30, feat_drop=0.2, log_interval=100, lr=0.001, num_layers=4, num_workers=4, patience=3, valid_split=None, weight_decay=0.0001)
+reading dataset
+993
+cuda
+LESSR(
+  (embedding): Embedding(42596, 32, max_norm=1)
+  (category_embedding): Embedding(993, 32, max_norm=1)
+  (price_embedding): Embedding(15, 32, max_norm=1)
+  (layers): ModuleList(
+    (0): EOPA(
+      (batch_norm): BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (feat_drop): Dropout(p=0.2, inplace=False)
+      (gru): GRU(32, 32, batch_first=True)
+      (fc_self): Linear(in_features=32, out_features=32, bias=False)
+      (fc_neigh): Linear(in_features=32, out_features=32, bias=False)
+      (activation): PReLU(num_parameters=32)
+    )
+    (1): SGAT(
+      (batch_norm): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (feat_drop): Dropout(p=0.2, inplace=False)
+      (fc_q): Linear(in_features=64, out_features=32, bias=True)
+      (fc_k): Linear(in_features=64, out_features=32, bias=False)
+      (fc_v): Linear(in_features=64, out_features=32, bias=False)
+      (fc_e): Linear(in_features=32, out_features=1, bias=False)
+      (activation): PReLU(num_parameters=32)
+    )
+    (2): EOPA(
+      (batch_norm): BatchNorm1d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (feat_drop): Dropout(p=0.2, inplace=False)
+      (gru): GRU(96, 96, batch_first=True)
+      (fc_self): Linear(in_features=96, out_features=32, bias=False)
+      (fc_neigh): Linear(in_features=96, out_features=32, bias=False)
+      (activation): PReLU(num_parameters=32)
+    )
+    (3): SGAT(
+      (batch_norm): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (feat_drop): Dropout(p=0.2, inplace=False)
+      (fc_q): Linear(in_features=128, out_features=32, bias=True)
+      (fc_k): Linear(in_features=128, out_features=32, bias=False)
+      (fc_v): Linear(in_features=128, out_features=32, bias=False)
+      (fc_e): Linear(in_features=32, out_features=1, bias=False)
+      (activation): PReLU(num_parameters=32)
+    )
+  )
+  (intend): Intend(
+    (batch_norm): BatchNorm1d(20, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (feat_drop): Dropout(p=0.2, inplace=False)
+    (gru): GRU(32, 160, batch_first=True)
+    (activation): ReLU()
+  )
+  (price_aware): PriceAware(
+    (batch_norm): BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (price_factor): Linear(in_features=32, out_features=160, bias=True)
+    (activation): Sigmoid()
+  )
+  (readout): AttnReadout(
+    (batch_norm): BatchNorm1d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (feat_drop): Dropout(p=0.2, inplace=False)
+    (fc_u): Linear(in_features=160, out_features=32, bias=False)
+    (fc_v): Linear(in_features=160, out_features=32, bias=True)
+    (fc_e): Linear(in_features=32, out_features=1, bias=False)
+    (fc_out): Linear(in_features=160, out_features=32, bias=False)
+    (activation): PReLU(num_parameters=32)
+  )
+  (batch_norm): BatchNorm1d(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (feat_drop): Dropout(p=0.2, inplace=False)
+  (fc_sr): Linear(in_features=192, out_features=32, bias=False)
+)
+start training
+Using backend: pytorch
+Batch 100: Loss = 10.7575, Time Elapsed = 152.43s
+Batch 200: Loss = 10.4687, Time Elapsed = 148.29s
+Batch 300: Loss = 10.1681, Time Elapsed = 148.18s
+Batch 400: Loss = 9.7405, Time Elapsed = 148.06s
+Batch 500: Loss = 9.3004, Time Elapsed = 148.04s
+Batch 600: Loss = 8.9068, Time Elapsed = 144.84s
+Batch 700: Loss = 8.5401, Time Elapsed = 144.80s
+Batch 800: Loss = 8.2176, Time Elapsed = 147.91s
+Batch 900: Loss = 7.9154, Time Elapsed = 149.46s
+Batch 1000: Loss = 7.6717, Time Elapsed = 149.38s
+Batch 1100: Loss = 7.4377, Time Elapsed = 149.78s
+Batch 1200: Loss = 7.2328, Time Elapsed = 148.91s
+Batch 1300: Loss = 7.0839, Time Elapsed = 148.22s
+Epoch 0: MRR = 11.309%, Hit = 32.440%
+Batch 1400: Loss = 6.9091, Time Elapsed = 225.62s
+Batch 1500: Loss = 6.5809, Time Elapsed = 152.35s
+Batch 1600: Loss = 6.4789, Time Elapsed = 151.90s
+Batch 1700: Loss = 6.4183, Time Elapsed = 151.76s
+Batch 1800: Loss = 6.3976, Time Elapsed = 152.25s
+Batch 1900: Loss = 6.2801, Time Elapsed = 152.04s
+Batch 2000: Loss = 6.2187, Time Elapsed = 151.64s
+Batch 2100: Loss = 6.1875, Time Elapsed = 152.00s
+Batch 2200: Loss = 6.1217, Time Elapsed = 152.87s
+Batch 2300: Loss = 6.0690, Time Elapsed = 153.05s
+Batch 2400: Loss = 6.0508, Time Elapsed = 153.35s
+Batch 2500: Loss = 6.0235, Time Elapsed = 152.86s
+Batch 2600: Loss = 5.9400, Time Elapsed = 151.70s
+Batch 2700: Loss = 5.9225, Time Elapsed = 153.36s
+Epoch 1: MRR = 13.656%, Hit = 41.517%
+Batch 2800: Loss = 5.8985, Time Elapsed = 228.59s
+Batch 2900: Loss = 5.6323, Time Elapsed = 147.30s
+Batch 3000: Loss = 5.6393, Time Elapsed = 151.28s
+Batch 3100: Loss = 5.6331, Time Elapsed = 153.19s
+Batch 3200: Loss = 5.6561, Time Elapsed = 152.02s
+Batch 3300: Loss = 5.6145, Time Elapsed = 150.99s
+Batch 3400: Loss = 5.6070, Time Elapsed = 150.03s
+Batch 3500: Loss = 5.5994, Time Elapsed = 150.99s
+Batch 3600: Loss = 5.5975, Time Elapsed = 150.90s
+Batch 3700: Loss = 5.5725, Time Elapsed = 151.20s
+Batch 3800: Loss = 5.5646, Time Elapsed = 150.76s
+Batch 3900: Loss = 5.5654, Time Elapsed = 149.94s
+Batch 4000: Loss = 5.5334, Time Elapsed = 150.74s
+Batch 4100: Loss = 5.5213, Time Elapsed = 150.53s
+Epoch 2: MRR = 14.871%, Hit = 45.086%
+Batch 4200: Loss = 5.4959, Time Elapsed = 226.97s
+Batch 4300: Loss = 5.2835, Time Elapsed = 151.25s
+Batch 4400: Loss = 5.3331, Time Elapsed = 151.39s
+Batch 4500: Loss = 5.3144, Time Elapsed = 150.70s
+Batch 4600: Loss = 5.3328, Time Elapsed = 151.42s
+Batch 4700: Loss = 5.3517, Time Elapsed = 150.93s
+Batch 4800: Loss = 5.3397, Time Elapsed = 151.78s
+Batch 4900: Loss = 5.3582, Time Elapsed = 150.56s
+Batch 5000: Loss = 5.3510, Time Elapsed = 151.84s
+Batch 5100: Loss = 5.3511, Time Elapsed = 150.01s
+Batch 5200: Loss = 5.3361, Time Elapsed = 151.02s
+Batch 5300: Loss = 5.3484, Time Elapsed = 150.49s
+Batch 5400: Loss = 5.3407, Time Elapsed = 151.15s
+Batch 5500: Loss = 5.3378, Time Elapsed = 151.17s
+Epoch 3: MRR = 15.684%, Hit = 47.359%
+Batch 5600: Loss = 5.3026, Time Elapsed = 227.74s
+Batch 5700: Loss = 5.1078, Time Elapsed = 152.21s
+Batch 5800: Loss = 5.1500, Time Elapsed = 152.31s
+Batch 5900: Loss = 5.1734, Time Elapsed = 151.12s
+Batch 6000: Loss = 5.1683, Time Elapsed = 152.68s
+Batch 6100: Loss = 5.1952, Time Elapsed = 152.42s
+Batch 6200: Loss = 5.1932, Time Elapsed = 151.97s
+Batch 6300: Loss = 5.1878, Time Elapsed = 150.94s
+Batch 6400: Loss = 5.1781, Time Elapsed = 150.96s
+Batch 6500: Loss = 5.1989, Time Elapsed = 151.23s
+Batch 6600: Loss = 5.2099, Time Elapsed = 151.55s
+Batch 6700: Loss = 5.2137, Time Elapsed = 151.25s
+Batch 6800: Loss = 5.2104, Time Elapsed = 151.02s
+Batch 6900: Loss = 5.1797, Time Elapsed = 150.90s
+Epoch 4: MRR = 16.043%, Hit = 48.681%
+Batch 7000: Loss = 5.2035, Time Elapsed = 227.29s
+Batch 7100: Loss = 4.9942, Time Elapsed = 151.71s
+Batch 7200: Loss = 5.0492, Time Elapsed = 150.79s
+Batch 7300: Loss = 5.0494, Time Elapsed = 151.04s
+Batch 7400: Loss = 5.0572, Time Elapsed = 151.14s
+Batch 7500: Loss = 5.0707, Time Elapsed = 151.40s
+Batch 7600: Loss = 5.0875, Time Elapsed = 151.65s
+Batch 7700: Loss = 5.0830, Time Elapsed = 150.59s
+Batch 7800: Loss = 5.0849, Time Elapsed = 151.64s
+Batch 7900: Loss = 5.0879, Time Elapsed = 152.93s
+Batch 8000: Loss = 5.0831, Time Elapsed = 153.43s
+Batch 8100: Loss = 5.1034, Time Elapsed = 153.09s
+Batch 8200: Loss = 5.1218, Time Elapsed = 153.97s
+Batch 8300: Loss = 5.0948, Time Elapsed = 156.75s
+Epoch 5: MRR = 16.411%, Hit = 49.741%
+Batch 8400: Loss = 5.1069, Time Elapsed = 230.14s
+Batch 8500: Loss = 4.8872, Time Elapsed = 152.80s
+Batch 8600: Loss = 4.9535, Time Elapsed = 153.22s
+Batch 8700: Loss = 4.9636, Time Elapsed = 152.46s
+Batch 8800: Loss = 4.9709, Time Elapsed = 152.67s
+Batch 8900: Loss = 4.9963, Time Elapsed = 152.46s
+Batch 9000: Loss = 4.9948, Time Elapsed = 152.95s
+Batch 9100: Loss = 5.0150, Time Elapsed = 152.52s
+Batch 9200: Loss = 5.0100, Time Elapsed = 152.52s
+Batch 9300: Loss = 5.0076, Time Elapsed = 152.55s
+Batch 9400: Loss = 5.0199, Time Elapsed = 153.44s
+Batch 9500: Loss = 5.0303, Time Elapsed = 153.70s
+Batch 9600: Loss = 5.0462, Time Elapsed = 154.25s
+Batch 9700: Loss = 5.0417, Time Elapsed = 156.13s
+Epoch 6: MRR = 16.557%, Hit = 50.344%
+Batch 9800: Loss = 5.0461, Time Elapsed = 231.62s
+Batch 9900: Loss = 4.8201, Time Elapsed = 155.49s
+Batch 10000: Loss = 4.8538, Time Elapsed = 154.02s
+Batch 10100: Loss = 4.8922, Time Elapsed = 153.44s
+Batch 10200: Loss = 4.9052, Time Elapsed = 153.04s
+Batch 10300: Loss = 4.9311, Time Elapsed = 153.94s
+Batch 10400: Loss = 4.9331, Time Elapsed = 154.20s
+Batch 10500: Loss = 4.9361, Time Elapsed = 153.66s
+Batch 10600: Loss = 4.9720, Time Elapsed = 154.06s
+Batch 10700: Loss = 4.9440, Time Elapsed = 155.71s
+Batch 10800: Loss = 4.9565, Time Elapsed = 156.71s
+Batch 10900: Loss = 4.9659, Time Elapsed = 155.15s
+Batch 11000: Loss = 4.9761, Time Elapsed = 155.12s
+Batch 11100: Loss = 5.0028, Time Elapsed = 155.15s
+Epoch 7: MRR = 16.595%, Hit = 50.786%
+Batch 11200: Loss = 4.9886, Time Elapsed = 231.29s
+Batch 11300: Loss = 4.7827, Time Elapsed = 153.97s
+Batch 11400: Loss = 4.8229, Time Elapsed = 152.42s
+Batch 11500: Loss = 4.8384, Time Elapsed = 152.84s
+Batch 11600: Loss = 4.8660, Time Elapsed = 155.65s
+Batch 11700: Loss = 4.8661, Time Elapsed = 155.47s
+Batch 11800: Loss = 4.8681, Time Elapsed = 156.03s
+Batch 11900: Loss = 4.8923, Time Elapsed = 157.10s
+Batch 12000: Loss = 4.8997, Time Elapsed = 156.86s
+Batch 12100: Loss = 4.9186, Time Elapsed = 155.58s
+Batch 12200: Loss = 4.9179, Time Elapsed = 154.66s
+Batch 12300: Loss = 4.9155, Time Elapsed = 154.76s
+Batch 12400: Loss = 4.9463, Time Elapsed = 154.49s
+Batch 12500: Loss = 4.9299, Time Elapsed = 154.82s
+Epoch 8: MRR = 16.854%, Hit = 50.784%
+Batch 12600: Loss = 4.9204, Time Elapsed = 231.34s
+Batch 12700: Loss = 4.7349, Time Elapsed = 154.10s
+Batch 12800: Loss = 4.7827, Time Elapsed = 154.01s
+Batch 12900: Loss = 4.7824, Time Elapsed = 152.83s
+Batch 13000: Loss = 4.8137, Time Elapsed = 152.95s
+Batch 13100: Loss = 4.8329, Time Elapsed = 153.23s
+Batch 13200: Loss = 4.8445, Time Elapsed = 154.07s
+Batch 13300: Loss = 4.8509, Time Elapsed = 154.23s
+Batch 13400: Loss = 4.8386, Time Elapsed = 155.41s
+Batch 13500: Loss = 4.8700, Time Elapsed = 157.97s
+Batch 13600: Loss = 4.8753, Time Elapsed = 155.68s
+Batch 13700: Loss = 4.8913, Time Elapsed = 155.26s
+Batch 13800: Loss = 4.9102, Time Elapsed = 154.60s
+Batch 13900: Loss = 4.9011, Time Elapsed = 154.08s
+Epoch 9: MRR = 16.824%, Hit = 51.307%
+Batch 14000: Loss = 4.8946, Time Elapsed = 232.82s
+Batch 14100: Loss = 4.6858, Time Elapsed = 154.65s
+Batch 14200: Loss = 4.7471, Time Elapsed = 153.17s
+Batch 14300: Loss = 4.7445, Time Elapsed = 152.26s
+Batch 14400: Loss = 4.7763, Time Elapsed = 152.62s
+Batch 14500: Loss = 4.7902, Time Elapsed = 153.56s
+Batch 14600: Loss = 4.7902, Time Elapsed = 152.76s
+Batch 14700: Loss = 4.8270, Time Elapsed = 153.37s
+Batch 14800: Loss = 4.8114, Time Elapsed = 152.52s
+Batch 14900: Loss = 4.8312, Time Elapsed = 152.62s
+Batch 15000: Loss = 4.8375, Time Elapsed = 152.86s
+Batch 15100: Loss = 4.8473, Time Elapsed = 152.54s
+Batch 15200: Loss = 4.8787, Time Elapsed = 151.96s
+Batch 15300: Loss = 4.8638, Time Elapsed = 152.53s
+Epoch 10: MRR = 17.028%, Hit = 51.445%
+Batch 15400: Loss = 4.8802, Time Elapsed = 229.45s
+Batch 15500: Loss = 4.6492, Time Elapsed = 153.06s
+Batch 15600: Loss = 4.6876, Time Elapsed = 153.73s
+Batch 15700: Loss = 4.7264, Time Elapsed = 153.87s
+Batch 15800: Loss = 4.7426, Time Elapsed = 153.46s
+Batch 15900: Loss = 4.7483, Time Elapsed = 154.05s
+Batch 16000: Loss = 4.7855, Time Elapsed = 154.00s
+Batch 16100: Loss = 4.7853, Time Elapsed = 154.65s
+Batch 16200: Loss = 4.7974, Time Elapsed = 154.60s
+Batch 16300: Loss = 4.8106, Time Elapsed = 155.42s
+Batch 16400: Loss = 4.8025, Time Elapsed = 154.73s
+Batch 16500: Loss = 4.8174, Time Elapsed = 153.98s
+Batch 16600: Loss = 4.8360, Time Elapsed = 153.59s
+Batch 16700: Loss = 4.8456, Time Elapsed = 154.52s
+Epoch 11: MRR = 17.224%, Hit = 51.663%
+Batch 16800: Loss = 4.8431, Time Elapsed = 231.67s
+Batch 16900: Loss = 4.6120, Time Elapsed = 154.41s
+Batch 17000: Loss = 4.6605, Time Elapsed = 153.90s
+Batch 17100: Loss = 4.7039, Time Elapsed = 153.25s
+Batch 17200: Loss = 4.7104, Time Elapsed = 152.77s
+Batch 17300: Loss = 4.7212, Time Elapsed = 153.21s
+Batch 17400: Loss = 4.7525, Time Elapsed = 153.90s
+Batch 17500: Loss = 4.7637, Time Elapsed = 153.32s
+Batch 17600: Loss = 4.7647, Time Elapsed = 153.17s
+Batch 17700: Loss = 4.7890, Time Elapsed = 152.71s
+Batch 17800: Loss = 4.7720, Time Elapsed = 153.85s
+Batch 17900: Loss = 4.7851, Time Elapsed = 153.65s
+Batch 18000: Loss = 4.8015, Time Elapsed = 153.52s
+Batch 18100: Loss = 4.8310, Time Elapsed = 152.59s
+Epoch 12: MRR = 17.031%, Hit = 51.626%
+Batch 18200: Loss = 4.8176, Time Elapsed = 229.64s
+Batch 18300: Loss = 4.6080, Time Elapsed = 152.96s
+Batch 18400: Loss = 4.6492, Time Elapsed = 155.20s
+Batch 18500: Loss = 4.6743, Time Elapsed = 152.73s
+Batch 18600: Loss = 4.6926, Time Elapsed = 152.28s
+Batch 18700: Loss = 4.6921, Time Elapsed = 152.66s
+Batch 18800: Loss = 4.7156, Time Elapsed = 152.70s
+Batch 18900: Loss = 4.7463, Time Elapsed = 152.40s
+Batch 19000: Loss = 4.7407, Time Elapsed = 153.09s
+Batch 19100: Loss = 4.7514, Time Elapsed = 152.51s
+Batch 19200: Loss = 4.7636, Time Elapsed = 152.80s
+Batch 19300: Loss = 4.7619, Time Elapsed = 152.48s
+Batch 19400: Loss = 4.7829, Time Elapsed = 152.39s
+Batch 19500: Loss = 4.7845, Time Elapsed = 152.62s
+Epoch 13: MRR = 17.094%, Hit = 51.743%
+Batch 19600: Loss = 4.8045, Time Elapsed = 229.35s
+Batch 19700: Loss = 4.5655, Time Elapsed = 152.80s
+Batch 19800: Loss = 4.5989, Time Elapsed = 151.45s
+Batch 19900: Loss = 4.6499, Time Elapsed = 154.33s
+Batch 20000: Loss = 4.6513, Time Elapsed = 153.14s
+Batch 20100: Loss = 4.6964, Time Elapsed = 154.52s
+Batch 20200: Loss = 4.7031, Time Elapsed = 153.86s
+Batch 20300: Loss = 4.7131, Time Elapsed = 155.19s
+Batch 20400: Loss = 4.7301, Time Elapsed = 156.85s
+Batch 20500: Loss = 4.7388, Time Elapsed = 155.96s
+Batch 20600: Loss = 4.7587, Time Elapsed = 156.28s
+Batch 20700: Loss = 4.7602, Time Elapsed = 156.61s
+Batch 20800: Loss = 4.7506, Time Elapsed = 157.62s
+Batch 20900: Loss = 4.7708, Time Elapsed = 157.92s
+Epoch 14: MRR = 17.255%, Hit = 51.847%
+Batch 21000: Loss = 4.7747, Time Elapsed = 237.76s
+Batch 21100: Loss = 4.5494, Time Elapsed = 158.70s
+Batch 21200: Loss = 4.5920, Time Elapsed = 157.25s
+Batch 21300: Loss = 4.6152, Time Elapsed = 158.78s
+Batch 21400: Loss = 4.6580, Time Elapsed = 156.86s
+Batch 21500: Loss = 4.6796, Time Elapsed = 154.29s
+Batch 21600: Loss = 4.6601, Time Elapsed = 156.41s
+Batch 21700: Loss = 4.7087, Time Elapsed = 156.10s
+Batch 21800: Loss = 4.6952, Time Elapsed = 156.56s
+Batch 21900: Loss = 4.7076, Time Elapsed = 155.46s
+Batch 22000: Loss = 4.7396, Time Elapsed = 156.56s
+Batch 22100: Loss = 4.7330, Time Elapsed = 154.29s
+Batch 22200: Loss = 4.7379, Time Elapsed = 156.89s
+Batch 22300: Loss = 4.7710, Time Elapsed = 154.50s
+Epoch 15: MRR = 17.142%, Hit = 51.977%
+Batch 22400: Loss = 4.7563, Time Elapsed = 232.44s
+Batch 22500: Loss = 4.5298, Time Elapsed = 154.44s
+Batch 22600: Loss = 4.5742, Time Elapsed = 155.05s
+Batch 22700: Loss = 4.6136, Time Elapsed = 155.12s
+Batch 22800: Loss = 4.6126, Time Elapsed = 153.68s
+Batch 22900: Loss = 4.6480, Time Elapsed = 154.03s
+Batch 23000: Loss = 4.6650, Time Elapsed = 156.89s
+Batch 23100: Loss = 4.6958, Time Elapsed = 156.07s
+Batch 23200: Loss = 4.6701, Time Elapsed = 155.07s
+Batch 23300: Loss = 4.6834, Time Elapsed = 156.07s
+Batch 23400: Loss = 4.7204, Time Elapsed = 154.75s
+Batch 23500: Loss = 4.7147, Time Elapsed = 154.48s
+Batch 23600: Loss = 4.7378, Time Elapsed = 155.14s
+Batch 23700: Loss = 4.7487, Time Elapsed = 153.75s
+Epoch 16: MRR = 17.333%, Hit = 51.947%
+Batch 23800: Loss = 4.7426, Time Elapsed = 230.87s
+Batch 23900: Loss = 4.5150, Time Elapsed = 154.34s
+Batch 24000: Loss = 4.5601, Time Elapsed = 154.53s
+Batch 24100: Loss = 4.5992, Time Elapsed = 154.60s
+Batch 24200: Loss = 4.6142, Time Elapsed = 154.19s
+Batch 24300: Loss = 4.6334, Time Elapsed = 154.54s
+Batch 24400: Loss = 4.6453, Time Elapsed = 154.76s
+Batch 24500: Loss = 4.6691, Time Elapsed = 154.39s
+Batch 24600: Loss = 4.6634, Time Elapsed = 154.14s
+Batch 24700: Loss = 4.6898, Time Elapsed = 156.81s
+Batch 24800: Loss = 4.7042, Time Elapsed = 157.86s
+Batch 24900: Loss = 4.7190, Time Elapsed = 155.27s
+Batch 25000: Loss = 4.6955, Time Elapsed = 156.39s
+Batch 25100: Loss = 4.7173, Time Elapsed = 155.11s
+Epoch 17: MRR = 17.354%, Hit = 52.010%
+Batch 25200: Loss = 4.7179, Time Elapsed = 232.87s
+Batch 25300: Loss = 4.4992, Time Elapsed = 155.45s
+Batch 25400: Loss = 4.5654, Time Elapsed = 154.65s
+Batch 25500: Loss = 4.5628, Time Elapsed = 155.72s
+Batch 25600: Loss = 4.6028, Time Elapsed = 154.36s
+Batch 25700: Loss = 4.6055, Time Elapsed = 153.07s
+Batch 25800: Loss = 4.6328, Time Elapsed = 153.69s
+Batch 25900: Loss = 4.6515, Time Elapsed = 155.03s
+Batch 26000: Loss = 4.6297, Time Elapsed = 154.86s
+Batch 26100: Loss = 4.6868, Time Elapsed = 153.81s
+Batch 26200: Loss = 4.6775, Time Elapsed = 153.02s
+Batch 26300: Loss = 4.6658, Time Elapsed = 152.62s
+Batch 26400: Loss = 4.7042, Time Elapsed = 156.27s
+Batch 26500: Loss = 4.6982, Time Elapsed = 156.18s
+Epoch 18: MRR = 17.336%, Hit = 51.877%
+Batch 26600: Loss = 4.7295, Time Elapsed = 232.30s
+Batch 26700: Loss = 4.5077, Time Elapsed = 156.39s
+Batch 26800: Loss = 4.5329, Time Elapsed = 155.56s
+Batch 26900: Loss = 4.5439, Time Elapsed = 155.01s
+Batch 27000: Loss = 4.6020, Time Elapsed = 154.97s
+Batch 27100: Loss = 4.5889, Time Elapsed = 155.13s
+Batch 27200: Loss = 4.6058, Time Elapsed = 153.80s
+Batch 27300: Loss = 4.6481, Time Elapsed = 153.57s
+Batch 27400: Loss = 4.6362, Time Elapsed = 153.05s
+Batch 27500: Loss = 4.6535, Time Elapsed = 152.90s
+Batch 27600: Loss = 4.6634, Time Elapsed = 153.90s
+Batch 27700: Loss = 4.6633, Time Elapsed = 154.45s
+Batch 27800: Loss = 4.6813, Time Elapsed = 157.68s
+Batch 27900: Loss = 4.7043, Time Elapsed = 157.76s
+Epoch 19: MRR = 17.344%, Hit = 51.871%
+Batch 28000: Loss = 4.7018, Time Elapsed = 235.62s
+Batch 28100: Loss = 4.4848, Time Elapsed = 157.68s
+Batch 28200: Loss = 4.5265, Time Elapsed = 155.40s
+Batch 28300: Loss = 4.5452, Time Elapsed = 156.16s
+Batch 28400: Loss = 4.5719, Time Elapsed = 155.10s
+Batch 28500: Loss = 4.5958, Time Elapsed = 154.10s
+Batch 28600: Loss = 4.5976, Time Elapsed = 154.43s
+Batch 28700: Loss = 4.6138, Time Elapsed = 153.71s
+Batch 28800: Loss = 4.6286, Time Elapsed = 154.11s
+Batch 28900: Loss = 4.6509, Time Elapsed = 154.23s
+Batch 29000: Loss = 4.6560, Time Elapsed = 153.51s
+Batch 29100: Loss = 4.6639, Time Elapsed = 153.60s
+Batch 29200: Loss = 4.6712, Time Elapsed = 153.53s
+Batch 29300: Loss = 4.6683, Time Elapsed = 153.37s
+Epoch 20: MRR = 17.354%, Hit = 52.121%
+Batch 29400: Loss = 4.6968, Time Elapsed = 231.33s
+Batch 29500: Loss = 4.4583, Time Elapsed = 155.33s
+Batch 29600: Loss = 4.5219, Time Elapsed = 154.88s
+Batch 29700: Loss = 4.5455, Time Elapsed = 154.71s
+Batch 29800: Loss = 4.5668, Time Elapsed = 156.19s
+Batch 29900: Loss = 4.5683, Time Elapsed = 156.41s
+Batch 30000: Loss = 4.5949, Time Elapsed = 155.84s
+Batch 30100: Loss = 4.6006, Time Elapsed = 155.61s
+Batch 30200: Loss = 4.6204, Time Elapsed = 156.21s
+Batch 30300: Loss = 4.6271, Time Elapsed = 156.83s
+Batch 30400: Loss = 4.6420, Time Elapsed = 156.66s
+Batch 30500: Loss = 4.6460, Time Elapsed = 157.35s
+Batch 30600: Loss = 4.6681, Time Elapsed = 155.76s
+Batch 30700: Loss = 4.6830, Time Elapsed = 156.35s
+Epoch 21: MRR = 17.272%, Hit = 51.940%
+Batch 30800: Loss = 4.6842, Time Elapsed = 232.98s
+Batch 30900: Loss = 4.4721, Time Elapsed = 157.78s
+Batch 31000: Loss = 4.4963, Time Elapsed = 154.61s
+Batch 31100: Loss = 4.5235, Time Elapsed = 154.00s
+Batch 31200: Loss = 4.5375, Time Elapsed = 153.53s
+Batch 31300: Loss = 4.5467, Time Elapsed = 153.52s
+Batch 31400: Loss = 4.5810, Time Elapsed = 153.83s
+Batch 31500: Loss = 4.5818, Time Elapsed = 154.21s
+Batch 31600: Loss = 4.6096, Time Elapsed = 153.91s
+Batch 31700: Loss = 4.6183, Time Elapsed = 154.10s
+Batch 31800: Loss = 4.6278, Time Elapsed = 153.98s
+Batch 31900: Loss = 4.6504, Time Elapsed = 153.56s
+Batch 32000: Loss = 4.6620, Time Elapsed = 154.20s
+Batch 32100: Loss = 4.6675, Time Elapsed = 154.28s
+Epoch 22: MRR = 17.473%, Hit = 51.957%
+Batch 32200: Loss = 4.6879, Time Elapsed = 232.92s
+Batch 32300: Loss = 4.4307, Time Elapsed = 155.05s
+Batch 32400: Loss = 4.4945, Time Elapsed = 155.61s
+Batch 32500: Loss = 4.5006, Time Elapsed = 155.68s
+Batch 32600: Loss = 4.5210, Time Elapsed = 155.56s
+Batch 32700: Loss = 4.5725, Time Elapsed = 154.81s
+Batch 32800: Loss = 4.5789, Time Elapsed = 155.97s
+Batch 32900: Loss = 4.5636, Time Elapsed = 155.77s
+Batch 33000: Loss = 4.6090, Time Elapsed = 155.30s
+Batch 33100: Loss = 4.6146, Time Elapsed = 153.87s
+Batch 33200: Loss = 4.6349, Time Elapsed = 155.65s
+Batch 33300: Loss = 4.6396, Time Elapsed = 155.50s
+Batch 33400: Loss = 4.6377, Time Elapsed = 157.28s
+Batch 33500: Loss = 4.6600, Time Elapsed = 154.90s
+Epoch 23: MRR = 17.237%, Hit = 51.897%
+Batch 33600: Loss = 4.6635, Time Elapsed = 230.43s
+Batch 33700: Loss = 4.4169, Time Elapsed = 154.20s
+Batch 33800: Loss = 4.4740, Time Elapsed = 153.68s
+Batch 33900: Loss = 4.5130, Time Elapsed = 152.45s
+Batch 34000: Loss = 4.5166, Time Elapsed = 153.48s
+Batch 34100: Loss = 4.5549, Time Elapsed = 153.72s
+Batch 34200: Loss = 4.5531, Time Elapsed = 152.44s
+Batch 34300: Loss = 4.5898, Time Elapsed = 152.97s
+Batch 34400: Loss = 4.5713, Time Elapsed = 152.82s
+Batch 34500: Loss = 4.6074, Time Elapsed = 152.21s
+Batch 34600: Loss = 4.6180, Time Elapsed = 152.39s
+Batch 34700: Loss = 4.6282, Time Elapsed = 152.31s
+Batch 34800: Loss = 4.6517, Time Elapsed = 152.29s
+Batch 34900: Loss = 4.6399, Time Elapsed = 152.21s
+Epoch 24: MRR = 17.202%, Hit = 51.910%
+Batch 35000: Loss = 4.6463, Time Elapsed = 229.19s
+Batch 35100: Loss = 4.4288, Time Elapsed = 152.56s
+Batch 35200: Loss = 4.4634, Time Elapsed = 152.51s
+Batch 35300: Loss = 4.5009, Time Elapsed = 152.03s
+Batch 35400: Loss = 4.5004, Time Elapsed = 151.81s
+Batch 35500: Loss = 4.5331, Time Elapsed = 152.34s
+Batch 35600: Loss = 4.5474, Time Elapsed = 152.25s
+Batch 35700: Loss = 4.5763, Time Elapsed = 152.79s
+Batch 35800: Loss = 4.5906, Time Elapsed = 152.32s
+Batch 35900: Loss = 4.5804, Time Elapsed = 152.93s
+Batch 36000: Loss = 4.6112, Time Elapsed = 151.96s
+Batch 36100: Loss = 4.6240, Time Elapsed = 151.84s
+Batch 36200: Loss = 4.6211, Time Elapsed = 152.35s
+Batch 36300: Loss = 4.6336, Time Elapsed = 152.19s
+Epoch 25: MRR = 17.247%, Hit = 51.896%
+MRR@20	HR@20
+17.473%	52.121%
