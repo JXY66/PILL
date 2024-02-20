@@ -1,13 +1,15 @@
-# LESSR
-A PyTorch implementation of LESSR (**L**ossless **E**dge-order preserving aggregation and **S**hortcut graph attention for **S**ession-based **R**ecommendation) from the paper:  
-_Handling Information Loss of Graph Neural Networks for Session-based Recommendation, Tianwen Chen and Raymong Chi-Wing Wong, KDD '20_
-
+# PILL
+Aiming at the problems that the session-based recommendation method combined with graph neural network in e-commerce scene adopts the construction method of session graph with information loss,and fails to fully consider the influencing factors of feature modeling,a price-aware information lossless model is proposed for session-based recommendation.
 ## Requirements
-- PyTorch 1.6.0
-- NumPy 1.19.1
-- Pandas 1.1.3
-- DGL 0.5.2
-
+- PyTorch  1.6.0  （cu102版本）
+- NumPy  1.19.1
+- Pandas  1.1.3
+- DGL-cu102  0.6.1
+- CUDA    10.2
+- cuDNN    7.6
+- Python    3.7.9
+- Notice: The above library versions can also run with higher versions, such as pytorch 1.7.0 + cu110, dgl-cu110 (0.6.1). All library dependencies are also stored in requirements.txt and can be installed directly using the above commands.
+  
 ## Usage
 1. Install the requirements.  
     If you use Anaconda, you can create a conda environment with the required packages using the following command.
