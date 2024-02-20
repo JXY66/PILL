@@ -44,9 +44,6 @@ A. embedding-dim: Try values of 16, 32, 64, 96, 128.
 B. feat-drop: Try values of 0.1, 0.2, 0.3, 0.4, 0.5.
 C. num-layers: Try values of 2, 4, 6, 8.
 D. For experiments with different feature fusion methods, in the pill.py file, uncomment one of the four fusion methods from lines 596-607, and comment out the other three methods. The four methods are: Mul (line 596), Add (line 598), Concat (lines 600-601), FG (lines 603-607). Then run main.py.
-## Datasets
-    - [Diginetica](https://competitions.codalab.org/competitions/11161)
-    - [Gowalla](https://snap.stanford.edu/data/loc-Gowalla.html)
-    - [Last.fm](http://ocelma.net/MusicRecommendationDataset/lastfm-1K.html)
+
 
 ```
