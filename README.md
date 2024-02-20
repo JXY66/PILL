@@ -48,13 +48,5 @@ D. For experiments with different feature fusion methods, in the pill.py file, u
     - [Diginetica](https://competitions.codalab.org/competitions/11161)
     - [Gowalla](https://snap.stanford.edu/data/loc-Gowalla.html)
     - [Last.fm](http://ocelma.net/MusicRecommendationDataset/lastfm-1K.html)
-## Citation
-```
-@inproceedings{chen2020lessr,
-    title="Handling Information Loss of Graph Neural Networks for Session-based Recommendation",
-    author="Tianwen {Chen} and Raymond Chi-Wing {Wong}",
-    booktitle="Proceedings of the 26th ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD '20)",
-    pages="1172-–1180",
-    year="2020"
-}
+
 ```
