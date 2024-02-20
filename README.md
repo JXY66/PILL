@@ -1,9 +1,9 @@
 # PASBR
-Aiming at the problems that the session-based recommendation method combined with graph neural network in e-commerce scene adopts the construction method of session graph with information loss,and fails to fully consider the influencing factors of feature modeling,a price-aware information lossless model is proposed for session-based recommendation.The overall framework of PASBR is depicted bellow.
+Aiming at the problems that the session-based recommendation method combined with graph neural network in e-commerce scene adopts the construction method of session graph with information loss,and fails to fully consider the influencing factors of feature modeling,a price-aware information lossless model is proposed for session-based recommendation.The overall framework of PASBR is depicted below.
 <img width="753" alt="0DCCDC45C2150DAD7D8963728926D127" src="https://github.com/JXY66/PILL/assets/104990190/93ba99a9-f067-4221-b686-1a36a0842806">
 
 ## Requirements
-- PyTorch  1.6.0  （cu102版本）
+- PyTorch  1.6.0  （cu102 ver.）
 - NumPy  1.19.1
 - Pandas  1.1.3
 - DGL-cu102  0.6.1
